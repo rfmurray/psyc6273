@@ -34,6 +34,9 @@
 # 2l. the smallest element of x, repeated a number of times equal to
 #     the largest element of x
 
+# --- After lecture 1, you should try the problems up to this point.
+# For later problems, you'll need the material that we'll cover in lecture 2.
+
 # 3. Change the list x as follows.
 
 # 3a. set the first element to zero
