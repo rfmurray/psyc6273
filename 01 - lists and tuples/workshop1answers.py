@@ -47,3 +47,48 @@ y = 5 * [ max(x) ]
 #     the largest element of x
 y = max(x) * [ min(x) ]
 
+# 3. Change the list x as follows.
+
+# 3a. set the first element to zero
+x[0] = 0
+
+# 3b. set the last three elements to zero
+x[-3:] = 3 * [0]
+
+# 3c. delete the fourth and fifth elements of x
+del x[3:5]
+
+# 3d. delete the first occurrence of the largest element of x
+x.remove(max(x))
+
+# 3e. delete the last element of x
+x.pop()
+
+# 3f. append the value 11 to the end of x
+x.append(11)
+
+# 3g. append the first three elements of x to the end of x
+x.extend(x[0:3])
+
+# 3h. sort the elements of x
+x.sort()
+
+# 4. Make y equal to the list x, in such a way that if you change an 
+#    element of x, the corresponding element of y changes as well.
+y = x
+
+# 5. Make y equal to the list x, in such a way that if you change an
+#    element of x, the corresponding element of y does not change.
+y = x.copy()
+
+# 6. Create a tuple z that contains the following elements.
+
+# 6a. the number 50
+z = (50,)
+
+# 6b. the number 50, repeated three times
+z = 3 * (50,)
+
+# 6c. the numbers 1, 2, and 3, in that order, repeated five times
+z = 5 * ( 1, 2, 3 )
+
