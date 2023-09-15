@@ -137,11 +137,11 @@ x = [random.random() for i in range(20)]  # use a list comprehension
 print(x)
 
 # loop until list is sorted
-keep_sorting = True
-while keep_sorting:   # not sure how many iterations, so we use a while loop
+all_sorted = False
+while not all_sorted:   # not sure how many iterations, so we use a while loop
     
     # step through elements of list    
-    keep_sorting = False;
+    all_sorted = True
     for i in range(len(x)-1):   # here we know how many iterations, so we use
                                 # a for loop. note that we can put loops
                                 # within loops.
@@ -160,7 +160,7 @@ while keep_sorting:   # not sure how many iterations, so we use a while loop
             # x[i], x[i+1] = x[i+1], x[i]
 
             # record that not all elements were in order            
-            keep_sorting = True
+            all_sorted = False
 
 # show sorted list
 print(x)
