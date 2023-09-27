@@ -2,9 +2,6 @@
 
 # Add code below the following comments, to solve the stated problems.
 
-# --- We haven't covered enough of lecture 2 for these problems yet,
-# so you'll have to wait until after the next class.
-
 # 1. Use a for loop to create a list that contains the squares of the
 # integers 0 to 20.
 
