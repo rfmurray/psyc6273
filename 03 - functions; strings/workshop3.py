@@ -1,5 +1,9 @@
 # workshop3.py  Lecture 3 workshop problems
 
+# --- Even though we haven't covered all the code in the lecture 3 folder,
+# we've covered the parts that are relevant to these problems, so go ahead
+# and given them a try.
+
 # Add code below the following comments, to solve the stated problems.
 # 
 # Some problems will require tools from earlier lectures, such as lists and
