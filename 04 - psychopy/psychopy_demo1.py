@@ -19,9 +19,9 @@ while True:
     x, y = mouse.getPos()
 
     # adjust mouse position
-    # - may need to adjust this for your own operating system
-    x += mainwin.size[0]/4
-    y += mainwin.size[1]/4
+    # - may need to use and adjust this for your own operating system
+    # x += mainwin.size[0]/4
+    # y += mainwin.size[1]/4
 
     # set circle position and draw it
     stim.setPos((x,y))
