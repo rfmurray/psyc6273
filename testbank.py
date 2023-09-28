@@ -55,3 +55,24 @@ x.sort()
 
 z = 5 * ( 1, 2, 3 )
 
+# 5. Use a list comprehension to create a list that contains the
+# squares of the integers 1 to 20.
+
+x = [ i**2 for i in range(1,21) ]
+
+# 6. Use a list comprehension to make a list of 200 simulated reaction
+# times. Make the reaction times normally distributed, with a mean of
+# 0.75 and a standard deviation of 0.25.
+
+import random
+rt = [ random.gauss(mu=0.75, sigma=0.25) for i in range(200) ]
+
+# 7. Create a list with 100 elements. Each element of the list is a tuple
+# with two elements. The first element of each tuple is a random number
+# from the interval [0,1). The second element of each tuple is a random
+# number drawn from the interval [0,1), with the constraint that the second
+# element is greater than the first element.
+
+import random
+ulist = [ random.uniform(0,1) for i in range(100) ]
+x = [ (u,random.uniform(u,1)) for u in ulist ]
