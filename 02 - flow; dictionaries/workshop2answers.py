@@ -3,17 +3,17 @@
 # Add code below the following comments, to solve the stated problems.
 
 # 1. Use a for loop to create a list that contains the squares of the
-# integers 1 to 20.
+# integers 0 to 20.
 
 x = []
-for i in range(1,21):
+for i in range(21):
     x.append(i**2)
 
 
 # 2. Repeat problem 1, using a while loop instead of a for loop.
 
 x = []
-i = 1
+i = 0
 while i<=20:
     x.append(i**2)
     i += 1
@@ -21,7 +21,7 @@ while i<=20:
 
 # 3. Repeat problem 1, using a list comprehension instead of a for loop.
 
-x = [ i**2 for i in range(1,21) ]
+x = [ i**2 for i in range(21) ]
 
 
 # 4. Rank the solutions in problems 1 to 3 from best to worst. Explain
