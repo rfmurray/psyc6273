@@ -11,6 +11,9 @@ win = visual.Window(size=[], units='pix', waitBlanking=True, fullscr=True)
 # create a sine wave grating object
 grating = visual.GratingStim(win=win, mask='gauss', size=250, pos=[0,0], sf=1/40.0)
 
+# create a mouse object
+mouse = event.Mouse(visible=False)
+
 # run trials
 for t in range(100):
 

@@ -6,9 +6,6 @@ from psychopy import visual, event, core
 # open a full-screen window
 win = visual.Window(size=[], units='pix', waitBlanking=True, fullscr=True)
 
-# create a mouse object
-mouse = event.Mouse(visible=False, newPos=[0,0])
-
 # create two dots
 dot1 = visual.Circle(win, radius=25, fillColor=(1,1,1), lineColor=None, pos=(  0,0))
 dot2 = visual.Circle(win, radius=25, fillColor=(1,1,1), lineColor=None, pos=(100,0))
@@ -16,6 +13,11 @@ dot2 = visual.Circle(win, radius=25, fillColor=(1,1,1), lineColor=None, pos=(100
 # set orbit parameters
 radius = 200
 frequency = 0.5
+
+# create a mouse object
+# - this shouldn't matter, but I've found that if you create the mouse
+#   before creating the circle object, the mouse cursor stays visible.
+mouse = event.Mouse(visible=False)
 
 # create a clock
 clock = core.Clock()

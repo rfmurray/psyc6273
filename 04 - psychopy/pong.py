@@ -7,9 +7,6 @@ from psychopy.hardware import keyboard
 win = visual.Window(size=[], units='pix', color=(-1,-1,-1), fullscr=True)
 winLim = win.size/4
 
-# create a mouse object
-mouse = event.Mouse(visible=False, newPos=[0,0])
-
 # create a keyboard object
 kb = keyboard.Keyboard()
 
@@ -31,6 +28,9 @@ ball = visual.Circle(win, radius=10, fillColor=(1,1,1), lineColor=None, pos=(0,0
 ballVec = [ 2, 2 ]
 ballAccel = 1.05
 ballMid = True
+
+# create a mouse object
+mouse = event.Mouse(visible=False)
 
 # loop indefinitely
 f = 0

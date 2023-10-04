@@ -6,11 +6,13 @@ from psychopy import visual, event
 # open a full-screen window
 mainwin = visual.Window(size=[], units='pix', waitBlanking=True, fullscr=True)
 
-# create a mouse object
-mouse = event.Mouse(visible=False, newPos=[0,0])
-
 # create a circle object
 stim = visual.Circle(win=mainwin, fillColor='black', lineColor=None, radius=25)
+
+# create a mouse object
+# - this shouldn't matter, but I've found that if you create the mouse
+#   before creating the circle object, the mouse cursor stays visible.
+mouse = event.Mouse(visible=False, newPos=[0,0])
 
 # loop indefinitely
 while True:
