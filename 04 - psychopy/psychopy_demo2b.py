@@ -6,7 +6,7 @@ import random
 from psychopy import visual, event, core, sound
 
 # set stimulus properties
-anglelist = [ i for i in range(10) ]  # list of grating angles (degrees)
+anglelist = [ i for i in range(1,11) ]  # list of grating angles (degrees)
 wavelength = 40.0           # sine wave wavelength (pixels)
 stimsize = 250.0            # stimulus size (pixels)
 stimdur = 0.5               # stimulus duration (seconds)
