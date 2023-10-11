@@ -1,7 +1,7 @@
 # testbank.py  Test bank for biweekly quizzes
 
 # 1. Create a list x that contains the numbers 1 to 10.
-x = [ 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 ]
+x = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
 
 # 2. Set a variable y equal to the following elements or sublists of x. Where
 # possible, write your code so that it works for any length of x, e.g., it still
@@ -76,3 +76,14 @@ rt = [ random.gauss(mu=0.75, sigma=0.25) for i in range(200) ]
 import random
 ulist = [ random.uniform(0,1) for i in range(100) ]
 x = [ (u,random.uniform(u,1)) for u in ulist ]
+
+# 8. Define a function randt(n, u, v) that returns an n-tuple of random
+# floating point numbers between u and v. Give u a default value of 0,
+# and v a default value of 1.
+
+import random
+
+def randt(n, u=0, v=1):
+    x = [ random.uniform(u,v) for i in range(n) ]
+    return tuple(x)
+
