@@ -4,8 +4,8 @@
 
 # 1. Create a list x that contains the numbers 1 to 10.
 
-# 2. Set a variable y equal to the following sublists of x. Where possible,
-# write your code so that it works for any length of x, e.g., it still
+# 2. Set a variable y equal to the following elements or sublists of x. Where
+# possible, write your code so that it works for any length of x, e.g., it still
 # works if x has 20 elements rather than 10.
 
 # 2a. the first element of x
