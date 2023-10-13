@@ -87,3 +87,18 @@ def randt(n, u=0, v=1):
     x = [ random.uniform(u,v) for i in range(n) ]
     return tuple(x)
 
+# 9. Use PsychoPy to create a mouse object, hide the mouse cursor, and get
+# the current mouse position. (You can assume that a PsychoPy window
+# has already been opened.)
+
+from psychopy import event
+mouse = event.Mouse(visible=False)
+x, y = mouse.getPos()
+
+# 10. Use PsychoPy to create a keyboard object and wait until the user
+# presses the letter 'a' or 'b'. (You can assume that a PsychoPy window
+# has already been opened.)
+
+from psychopy.hardware import keyboard
+kb = keyboard.Keyboard()
+k = kb.waitKeys(keyList = ['a', 'b'])
