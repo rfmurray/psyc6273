@@ -1,4 +1,4 @@
-# plotdata2.py  Analyzing data with numpy
+# plotdata.py  Analyzing data with numpy
 
 import numpy as np
 from matplotlib import pyplot as plt
