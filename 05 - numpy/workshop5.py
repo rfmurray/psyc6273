@@ -5,10 +5,6 @@
 # 1. Create a 2D array of zeros, of size (10,20).
 
 # 2. Create a 2D array of size (5,10), where every entry is 100.
-# hint: Read the help for np.tile(). Recall that you can get this help
-# text at the command line by running "help( np.tile )", after
-# importing the numpy module as np. Alternatively there's lot of help
-# available online for almost any numpy function.
 
 # 3. Create a 2D array of random integers between 1 and 10, of size (5,5).
 # hint: read the help for np.random.randint()
@@ -22,7 +18,6 @@
 
 # 6. (a) Create a 2D array x of normally distributed random numbers, with
 # mean zero and standard deviation one. Make the array size (9,9).
-# hint: Use the function np.random.normal().
 
 # (b) Create a 2D array y that is a view of the central 3 x 3 square
 # of the array x that you created in part (a).
@@ -31,6 +26,8 @@
 
 # (c) Set the values of y to zero (in place), and confirm that this also
 # changes the values of the central 3 x 3 square of x to zero.
+
+# Try the following problem after we've covered the script image.py in class.
 
 # 7. (a) Write a function that creates an array that is an image of a circle,
 # where the pixels outside the circle have a value of zero, and the
