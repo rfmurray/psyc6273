@@ -1,6 +1,7 @@
 # testbank.py  Test bank for biweekly quizzes
 
 # 1. Create a list x that contains the numbers 1 to 10.
+
 x = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
 
 # 2. Set a variable y equal to the following elements or sublists of x. Where
@@ -8,46 +9,67 @@ x = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
 # works if x has 20 elements rather than 10.
 
 # the first five elements of x
+
 y = x[:5]
 
+# the last five elements of x
+
+y = x[-5:]
+
 # the last element of x
+
 y = x[-1]
 
 # every second element of x, starting with the first element
+
 y = x[::2]
 
 # every third element of x, starting with the second element
+
 y = x[1::3]
 
 # the first three elements of x and the last three elements of x
+
 y = x[:3] + x[-3:]
 
 # the first five elements of x, repeated ten times, i.e., the list
 # [ 1, 2, 3, 4, 5, 1, 2, 3, 4, 5, ... ], with ten repetitions
+
 y = 10 * x[:5]
 
 # the smallest element of x, repeated a number of times equal to
 # the largest element of x
+
 y = max(x) * [ min(x) ]
+
+# all the elements of x, in reverse order
+
+y = x[::-1]
 
 # 3. Change the list x as follows.
 
 # set the first element to zero
+
 x[0] = 0
 
 # delete the fourth and fifth elements of x
+
 del x[3:5]
 
 # delete the first occurrence of the largest element of x
+
 x.remove(max(x))
 
 # append the value 11 to the end of x
+
 x.append(11)
 
 # append the first three elements of x to the end of x
+
 x.extend(x[0:3])
 
 # sort the elements of x
+
 x.sort()
 
 # 4. Create a tuple z that contains the numbers 1, 2, and 3,
@@ -102,3 +124,34 @@ x, y = mouse.getPos()
 from psychopy.hardware import keyboard
 kb = keyboard.Keyboard()
 k = kb.waitKeys(keyList = ['a', 'b'])
+
+# 11. Set x to 3.141592654. Use an f-string to print a message that reports the value
+# of x with four decimal places.
+
+x = 3.141592654
+print(f'The value of x is {x:.4f}.')
+
+# 12. Write code that uses the numpy module to do the following.
+
+# Create a 5 x 3 array z filled with zeros.
+
+z = np.zeros(shape=(5,3))
+
+# Create a 4 x 5 array z filled with samples from the standard
+# normal distribution (i.e., mean=0, standard deviation=1).
+
+z = np.random.normal(loc=0.0, scale=1.0, size=(4,5))
+
+# Create a 1D array that contains the numbers 10, 20, 30.
+
+z = np.array([ 10, 20, 30 ])
+
+# Create an array z that contains 10 samples, evenly spaced
+# between 20 and 50.
+
+z = np.linspace(start=20, stop=50, num=10)
+
+# Find the shape of array z.
+
+z.shape
+
