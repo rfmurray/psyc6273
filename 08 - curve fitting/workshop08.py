@@ -6,14 +6,14 @@
 # to the interpolated concentration (seventh column) versus the decimal year
 # (fourth column). Plot the data and the fitted curve.
 
-# If you would like suggestions about how to do this, here are some steps
+# If you'd like suggestions about how to do this, here are some steps
 # you could take.
 
 # 1. Use np.loadtxt() to load the data from keeling.csv. Note that the data
 # file uses an unusual comment character, and has comma-separated values.
-# In the resulting array, keep just the two columns that you will need.
+# In the resulting array, keep just the two columns that you'll need.
 
-# 2. If you plot the data, you will see that there are some missing values,
+# 2. If you plot the data, you'll see that there are some missing values,
 # indicated by negative CO2 concentrations. Use boolean indexing to remove
 # these rows.
 
@@ -25,15 +25,10 @@
 # Try a second-order polynomial: y = a*(x**2) + b*x + c. Whether your fitting
 # routine works or not might depend on your initial guess as to the
 # parameters, so try something that's at least in the right ballpark.
-# For example, you could set a=0, and b and c to the values for
+# For example, you could set a=0, and set b and c to the values for
 # a straight line through the first and last data points.
 
-
-You could
-# use an initial guess with a=0, and the other two parameters initialized
-# as in the linear fit.
-
-# 5. Now try also fitting the annual variation that is evident in the data.
+# 5. Now try also fitting the annual variation that's evident in the data.
 # Fit a second-order polynomial plus sinusoidal variation with a period of
 # one year: y = a*(x**2) + b*x + c + d*np.sin(2*np.pi*x-e).
 # Parameter d controls the amplitude of the sine wave, and e controls
