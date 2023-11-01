@@ -14,8 +14,7 @@ r = stats.linregress(x, y)
 print(r.slope, r.intercept)
 
 plt.plot(x, y, 'ro')
-xx = np.linspace(min(x), max(x), num=100)
-plt.plot(xx, r.slope*xx + r.intercept, 'k-')
+plt.plot(x, r.slope*x + r.intercept, 'k-')
 plt.show()
 
 # 2. linear regression (least-squares), method 2
@@ -31,8 +30,7 @@ popt, _ = optimize.curve_fit(f, x, y, p0=(1,0))
 print(popt)
 
 plt.plot(x, y, 'ro')
-xx = np.linspace(min(x), max(x), num=100)
-plt.plot(xx, f(xx, *popt), 'k-')
+plt.plot(x, f(x, *popt), 'k-')
 plt.show()
 
 # 3. nonlinear regression (least-squares)
