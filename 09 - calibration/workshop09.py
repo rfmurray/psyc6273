@@ -9,7 +9,9 @@
 # implements the calibration routines covered in lecture 9. Write it so that
 # we can use it as follows.
 
-# 1. Fit calibration data and save the fits in a pickle file.
+# 1. Fit calibration data and save the fits in a pickle file. Define the class
+# so that we can use the following code. That is, unlike in the previous
+# workshop problems, here the code is part of the problem, not the solution.
 
 import calibrate            # import the calibration module
 
@@ -31,8 +33,8 @@ c = calibrate.CalLum()      # create a new calibration object
 
 c.load('caldata.pickle')    # load the saved parameters
 
-# 3. Use the object to convert luminances to greylevels. (Here I assume
-# you already have a 2D array im_lum that contains the luminances you'd
-# like to show.)
+# 3. Now that the calibration parameters have been loaded, use the object
+# to convert luminances to greylevels. (Here I assume that you already
+# have a 2D image im_lum that contains the luminances you'd like to show.)
 
 im_grey = c.lum2grey(im_lum)
