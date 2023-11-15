@@ -1,4 +1,4 @@
-# workshop8answers.py  Lecture 8 workshop problems
+# workshop8a_answers.py  Lecture 8 workshop problems
 
 import numpy as np
 import matplotlib.pyplot as plt

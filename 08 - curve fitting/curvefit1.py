@@ -1,4 +1,4 @@
-# curvefit.py  Curve fitting
+# curvefit1.py  Curve fitting with scipy.optimize.curve_fit
 
 import numpy as np
 from scipy import stats, optimize

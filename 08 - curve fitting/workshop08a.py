@@ -1,4 +1,4 @@
-# workshop08.py  Lecture 8 workshop problems
+# workshop08a.py  Lecture 8 workshop problems
 
 # The Keeling curve shows the atmospheric concentration of carbon dioxide
 # from 1958 to the present. This data is given in the accompanying file
