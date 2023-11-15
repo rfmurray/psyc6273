@@ -1,6 +1,6 @@
 # curvefit2.py  Curve fitting with scipy.optimize.minimize
 
-import numpy as np
+import random, numpy as np
 from scipy import optimize, stats
 from matplotlib import pyplot as plt
 
@@ -67,7 +67,7 @@ pmin = []
 for i in range(20):
     
     # make a fit from a random starting point
-    pinit = ( 2*np.random.randn(1), 2*np.random.rand(1), -np.pi + 2*np.pi*np.random.rand(1) )
+    pinit = ( random.gauss(0,2), random.uniform(0,2), random.uniform(-np.pi, np.pi) )
     res = optimize.minimize(errfn, x0=pinit, method='Nelder-Mead')
     
     # compare error to best so far
