@@ -155,3 +155,24 @@ z = np.linspace(start=20, stop=50, num=10)
 
 z.shape
 
+# 13. Write code that saves and loads data as follows.
+
+# (a) Save variables x and y to a pickle file called 'data.pickle'.
+
+import pickle
+
+with open('data.pickle', 'wb') as f:
+    pickle.dump(x, f)
+    pickle.dump(y, f)
+
+# (b) Load the first two data structures in a pickle file called 'data.pickle', and call them a and b.
+
+with open('data.pickle', 'rb') as f:
+    a = pickle.load(f)
+    b = pickle.load(f)
+
+# 14. Use scipy.optimize.curve_fit to find the sum-of-squares fit of a function called fitfn to data points x and y.
+
+from scipy import optimize
+popt, _ = optimize.curve_fit(fitfn, x, y)
+
