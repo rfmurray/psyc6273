@@ -22,6 +22,6 @@ df.groupby(['Pclass', 'Sex'])[['Age','Fare']].std()
 df.groupby(['Pclass', 'Sex'])[['Age','Fare']].count()
 df.groupby(['Pclass', 'Sex'])[['Age','Fare']].agg(['mean', 'std', 'count'])
 
-# can see information on the groups
+# show information about the groups
 df.groupby(['Pclass', 'Sex']).describe()
 df.groupby(['Pclass', 'Sex']).apply(print)
