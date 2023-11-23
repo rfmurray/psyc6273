@@ -55,7 +55,7 @@ df[df['Age']>35]['Name']
 
 # method 2: use indices with loc
 
-df.loc[0:5]                   # rows
+df.loc[0:5]                   # rows (by indices, not row numbers)
 df.loc[:, 'Age']              # column
 df.loc[:, ['Age', 'Sex']]     # columns
 df.loc[0:5, ['Age', 'Sex']]   # rows and columns
@@ -63,7 +63,7 @@ df.loc[df['Age']>35, 'Name']  # rows and column
 
 # method 3: use row and column numbers with iloc
 
-df.iloc[0:10,3:6]  # can select rows, columns or both
+df.iloc[0:10,3:6]  # can select rows, columns or both (by row numbers, not indices)
 
 
 # 4. indices are not just synonyms for row numbers

@@ -15,10 +15,13 @@ df[['Age','Fare']].std()
 df[['Age','Fare']].agg(['mean', 'std', 'sum', 'count'])
 
 # summary statistics on groups
-
 df.groupby('Pclass')['Age'].mean()
 df.groupby('Pclass')[['Age','Fare']].mean()
 df.groupby(['Pclass', 'Sex'])[['Age','Fare']].mean()
 df.groupby(['Pclass', 'Sex'])[['Age','Fare']].std()
 df.groupby(['Pclass', 'Sex'])[['Age','Fare']].count()
 df.groupby(['Pclass', 'Sex'])[['Age','Fare']].agg(['mean', 'std', 'count'])
+
+# can see information on the groups
+df.groupby(['Pclass', 'Sex']).describe()
+df.groupby(['Pclass', 'Sex']).apply(print)
