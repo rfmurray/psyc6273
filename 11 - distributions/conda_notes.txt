@@ -1,0 +1,46 @@
+
+# 1. managing anaconda
+
+# update anaconda
+conda update conda
+
+# uninstall anaconda
+conda activate
+conda init --reverse --all
+rm -rf ~/anaconda3
+
+
+# 2. managing environments
+
+# list environments
+conda env list
+
+# create an environment
+conda create --name myenv python
+conda create --name myenv python ipython scipy
+
+# create an environment with a specific version of python
+conda create --name myenv python=3.8
+python --version
+
+# create an environment using a .yml file
+conda env create -n psychopy -f psychopy-env.yml
+# may have problems with current version of psychopy, depending on your environment
+
+# activate an environment
+conda activate myenv
+
+# deactivate current environment
+conda deactivate
+
+# remove an environment
+conda env remove --name myenv
+
+
+# 3. installing packages into the current environment
+
+# install a python package
+conda install -c anaconda numpy
+
+# install a python package with a specific version
+conda install -c anaconda numpy=1.22
