@@ -203,14 +203,14 @@ primes = primes + (31,)  # this version works
 primes = [2, 3, 5, 7, 11, 13, 15, 17]
 primes[0:4]
 
-# a single-element slice of a list is a list
-primes[0] + 10    # this line works
-primes[0:1] + 10  # this line generates an error
-
 # can omit endpoints in slice notation
 primes[:4]
 primes[4:]
 primes[:]
+
+# a single-element slice of a list is a list
+primes[0] + 10    # this line works
+primes[0:1] + 10  # this line generates an error
 
 # slicing works with all kinds of sequences, including tuples and strings
 
