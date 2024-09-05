@@ -1,4 +1,4 @@
-# testbank.py
+# testbank.py  Test bank for biweekly quizzes
 
 # calculate 2 to the power of 8 in two different ways
 pow(2, 8)
