@@ -83,7 +83,7 @@ some_properties = [1.5, 2, True, None, 10]
 square_circles = []
 trajectory = [[50, -10], [50, -15], [52, -18], [55, -20]]
 
-# fine the length of a list
+# find the length of a list
 n = len(trajectory)
 
 # create a list from other variables
