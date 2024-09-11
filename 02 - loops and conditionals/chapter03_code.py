@@ -21,7 +21,7 @@ for x in [1, 2, 3]:
 # for loops with other kinds of sequences as iterables
 
 for i in (10, 20, 30):
-    print(x**2)
+    print(i**2)
 
 for c in 'here':
     print(c)
@@ -41,7 +41,7 @@ ntrials = 40
 trial_duration = 10
 
 for trial_number in range(ntrials):
-
+    
     elapsed_time = 0
     
     while elapsed_time < trial_duration:
@@ -182,13 +182,13 @@ while True:
     # make a pass through the list and count the number of switches
     switches = 0
     for i in range(len(x)-1):
-
+        
         if x[i] > x[i+1]:  # switch these two elements if necessary
             tmp = x[i]
             x[i] = x[i+1]
             x[i+1] = tmp
             switches = switches + 1
-
+    
     if switches == 0:  # if no switches, then the list is sorted
         break
 
@@ -216,7 +216,7 @@ while True:
         if x[i] > x[i+1]:
             x[i], x[i+1] = x[i+1], x[i]
             switches += 1
-
+    
     if switches == 0:
         break
 
