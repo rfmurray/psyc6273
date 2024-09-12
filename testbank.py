@@ -64,3 +64,16 @@ s.count('e')
 # define a string variable s by concatenating two strings
 s = 'abc' + 'def'
 
+# use a for loop to print the integers from 0 to 19
+for x in range(20):
+    print(x)
+
+# use a while loop to get a sample from the normal distribution
+# with mean 0 and standard deviation 1, but ensure that the
+# sample has a value between -2 and 2
+import random
+while True:
+    x = random.gauss(0, 1)
+    if x>=-2 and x<=2:
+        break
+
