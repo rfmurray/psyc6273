@@ -77,3 +77,17 @@ while True:
     if x>=-2 and x<=2:
         break
 
+# use psychopy to create a mouse object
+from psychopy import event
+mouse = event.Mouse()
+
+# read the current mouse position from a mouse object
+x, y = mouse.getPos()
+
+# use psychopy to create a keyboard object
+from psychopy.hardware import keyboard
+kb = keyboard.Keyboard()
+
+# check what keyboard keys have been pressed
+keys = kb.getKeys(waitRelease=False)
+
