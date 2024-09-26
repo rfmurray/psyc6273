@@ -87,7 +87,7 @@ filename2 = filename.replace('.tif', '.jpg')
 
 filename[11:15] = '.jpg'  # error
 
-filename2 = 'stimulus001.tif'.replace('.tif','.jpg')  # *** check code in book; typo?
+filename2 = 'stimulus001.tif'.replace('.tif','.jpg')
 
 participant_initials = 'JfK'
 participant_initials.upper()
