@@ -1,4 +1,4 @@
-# workshop5answers.py  Solutions to lecture 5 workshop problems
+# lecture05_solutions.py  Solutions to lecture 5 workshop problems
 
 # Solve the following problems using the numpy module.
 
