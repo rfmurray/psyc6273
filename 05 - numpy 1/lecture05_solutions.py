@@ -44,9 +44,3 @@ x = np.random.normal(size=(9,9))
 
 y = x[3:6,3:6]
 
-# 7. Create a text file with ten lines. Each line is a comma-separated
-# list of random numbers with mean zero and standard deviation one, shown
-# to three decimal places.
-
-x = np.random.normal(loc=0, scale=1, size=(10,10))
-np.savetxt('random.txt', x, fmt='%.3f', delimiter=',')

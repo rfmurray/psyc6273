@@ -1,4 +1,4 @@
-# workshop5answers.py  Solutions to lecture 5 workshop problems
+# lecture05_problems.py  Lecture 5 workshop problems
 
 # Solve the following problems using the numpy module.
 
@@ -23,8 +23,4 @@
 # of the array x that you created in part (a).
 # hint: Use the slice operations we covered in the lecture,
 # e.g., something like y = x[0:1,0:1]
-
-# 7. Create a text file with ten lines. Each line is a comma-separated
-# list of random numbers with mean zero and standard deviation one, shown
-# to three decimal places.
 
