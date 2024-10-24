@@ -7,6 +7,9 @@ from scipy import optimize
 dx = np.linspace(-np.pi,np.pi,20);
 dy = 1 + 0.5*np.sin(dx) + np.random.normal(size=dx.shape, scale=0.1)
 
+plt.plot(dx,dy,'ro');
+plt.show()
+
 # here's the function we're going to fit to the data; we think of this as a
 # function of one variable x, with three parameters a, b, and c that change
 # the position and shape of the function
@@ -41,7 +44,7 @@ fitfn(dx, a, b, c) - dy
 
 # forget about our guesses for a, b, and c, and make the line above
 # into a function of a variable p (which is a three-element array)
-errfn = lambda p : ((fitfn(dx, p[0], p[1], p[2]) - dy) ** 2).sum()
+errfn = lambda p : ((fitfn(dx, *p) - dy) ** 2).sum()
 
 # use scipy.optimize.minimize to find the value of p that minimizes this function
 res = optimize.minimize(errfn, x0=(0,1,0), method='Nelder-Mead')

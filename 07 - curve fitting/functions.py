@@ -81,7 +81,7 @@ This function is just for illustration."""
 
 help(addit)
 
-# a lambda function is a simple one-line function
+# a lambda function ('anonymous' function) is a simple one-line function
 
 f = lambda z : z**2
 
@@ -105,3 +105,9 @@ x.sort(key=f)
 
 # do the same thing passing the lambda function directly as an argument
 x.sort(key = lambda z : z[1])
+# this is a good example of how lambda functions are used in practice,
+# as simple, temporary functions that we use just once; the reason they're
+# also called 'anonymous' functions is that when we use them like this,
+# we don't even assign them a function name; here we do pass the lambda
+# function as a named argument, but we don't assign the function itself
+# a name, as we would have to if we defined it with 'def'

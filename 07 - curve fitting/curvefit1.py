@@ -10,6 +10,9 @@ x = np.linspace(0, 10, num=21)
 y = 5*x + 1
 y = y + np.random.normal(scale=4.0, size=x.shape)
 
+plt.plot(x, y, 'ro')
+plt.show()
+
 r = stats.linregress(x, y)
 print(r.slope, r.intercept)
 
@@ -23,6 +26,9 @@ x = np.linspace(0, 10, num=21)
 y = 5*x + 1
 y = y + np.random.normal(scale=4.0, size=x.shape)
 
+plt.plot(x, y, 'ro')
+plt.show()
+
 def f(u, m, b):
     return m*u + b
 
@@ -33,11 +39,18 @@ plt.plot(x, y, 'ro')
 plt.plot(x, f(x, *popt), 'k-')
 plt.show()
 
+# normally if we wanted to do linear regression, we'd use method 1 above,
+# instead of method 2, because method 1 is simpler. however, understanding
+# method 2 allows us to easily move on to nonlinear regression (method 3).
+
 # 3. nonlinear regression (least-squares)
 
 x = np.linspace(0, 10, num=21)
 y = 4*(x-5)**2 + 2
 y = y + np.random.normal(scale=4.0, size=x.shape)
+
+plt.plot(x, y, 'ro')
+plt.show()
 
 def f(u, a, b, c):
     return a*(u-b)**2 + c

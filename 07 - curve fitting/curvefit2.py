@@ -36,12 +36,15 @@ print(res)
 dx = np.linspace(-np.pi,np.pi,20);
 dy = 1 + 0.5*np.sin(dx) + np.random.normal(size=dx.shape, scale=0.1)
 
+plt.plot(dx,dy,'ro');
+plt.show()
+
 # make the fitting function
 fitfn = lambda x, a, b, c : a + b*np.sin(x-c)
 
 # make the error function (sum-of-squares)
 # (see steps1.py for a step-by-step construction of this function)
-errfn = lambda p : ( ( fitfn(dx,p[0],p[1],p[2]) - dy ) ** 2 ).sum()
+errfn = lambda p : ( ( fitfn(dx,*p) - dy ) ** 2 ).sum()
 
 # minimize the error function
 res = optimize.minimize(errfn, x0=(0,1,0), method='Nelder-Mead')
@@ -50,7 +53,7 @@ print(f'fit: y = ({res.x[0]:.2f}) + ({res.x[1]:.2f}) * sin( x - ({res.x[2]:.2f})
 # plot data and fitted function
 plt.plot(dx,dy,'ro');
 xx = np.linspace(-np.pi,np.pi,100)
-plt.plot(xx,fitfn(xx,res.x[0],res.x[1],res.x[2]),'k-')
+plt.plot(xx,fitfn(xx,*res.x),'k-')
 plt.show()
 
 # alternative: recall that we can also use optimize.curve_fit() for
@@ -82,6 +85,5 @@ print(f'fit: y = ({pmin[0]:.2f}) + ({pmin[1]:.2f}) * sin( x - ({pmin[2]:.2f}) )'
 # plot data and fitted function
 plt.plot(dx,dy,'ro');
 xx = np.linspace(-np.pi,np.pi,100)
-plt.plot(xx,fitfn(xx,pmin[0],pmin[1],pmin[2]),'k-')
+plt.plot(xx,fitfn(xx,*pmin),'k-')
 plt.show()
-
