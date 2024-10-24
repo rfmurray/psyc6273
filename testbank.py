@@ -122,3 +122,12 @@ z = np.linspace(start=20, stop=50, num=10)
 # Find the shape of the numpy array z.
 z.shape
 
+# Create a function called 'addit' that takes two arguments, a and b, and
+# returns their sum. Give argument b a default value of 10.
+def addit(a, b=10):
+    return a+b
+
+# Use the scipy.stats module to regress the data in y against x.
+from scipy import stats
+r = stats.linregress(x, y)
+
