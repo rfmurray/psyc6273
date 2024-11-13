@@ -1,4 +1,4 @@
-# lecture09_problems.py  Lecture 9 workshop problems
+# lecture09_solutions.py  Solutions to lecture 9 workshop problems
 
 # 1. Revise your solution to problem 2 in the posted problems for lecture 7.
 # Allow the function bsort to take an additional, optional input argument called
