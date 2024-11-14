@@ -1,6 +1,6 @@
 # lecture10_problems.py  Lecture 10 workshop problems
 
-# 1. Use pandas and the Keeling curve dataset provided in lecture 8
+# 1. Use pandas and the Keeling curve dataset provided in lecture 7
 # to plot the average atmospheric CO2 concentration by month, averaging
 # over all years in the dataset. You can use column 2 of the dataset,
 # which gives an integer 1-12 that encodes the month of each measurement.
