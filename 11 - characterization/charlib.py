@@ -73,7 +73,7 @@ class CharLum:
         'fit gamma function to characterization data'
         p0 = [self.lum.max()-self.lum.min(), 0, 2.2, self.lum.min()]
         bounds = (np.array((0, 0, -np.inf, 0)), np.array((np.inf, 255, np.inf, np.inf)))
-        self.param, _ = optimize.curve_fit(self.gammafn, self.grey, self.lum, p0=p0, bounds=bounds)
+        self.param, _ = optimize.curve_fit(self.gamma, self.grey, self.lum, p0=p0, bounds=bounds)
     
     def plot(self):
         'plot characterization data and fitted gamma function'
@@ -142,7 +142,7 @@ class CharLum:
     
     def grey2lum(self, grey):
         'convert greylevel to luminance'
-        return self.gammafn(grey, *self.param)
+        return self.gamma(grey, *self.param)
     
     def lum2unit(self, lum):
         return self.grey2unit(self.lum2grey(lum, roundit=False))
@@ -157,7 +157,7 @@ class CharLum:
         g = 255.0 * (u+1.0)/2.0
         return g.round() if roundit else g
 
-    def gammafn(self, x, k, g0, gamma, delta):
+    def gamma(self, x, k, g0, gamma_exp, delta):
         'gamma function'
         
         low = x<g0
@@ -167,11 +167,11 @@ class CharLum:
         y = np.empty(x.shape)
         y[low] = delta
         y[high] = k+delta
-        y[ok] = k * np.power((x[ok]-g0)/(255-g0), gamma) + delta
+        y[ok] = k * np.power((x[ok]-g0)/(255-g0), gamma_exp) + delta
         
         return y
     
-    def gammainv(self, y, k, g0, gamma, delta):
+    def gammainv(self, y, k, g0, gamma_exp, delta):
         'inverse gamma function'
         
         low = y<delta
@@ -181,7 +181,7 @@ class CharLum:
         x = np.empty(y.shape)
         x[low] = g0
         x[high] = 255
-        x[ok] = (255-g0) * np.power((y[ok]-delta)/k, 1/gamma) + g0
+        x[ok] = (255-g0) * np.power((y[ok]-delta)/k, 1/gamma_exp) + g0
         
         return x
     
@@ -202,6 +202,6 @@ class CharLum:
     def __repr__(self):
         'provide string representation of object'
         if not self.param is None:
-            return f'k = {self.param[0]:.2f}, g0 = {self.param[1]:.2f}, gamma = {self.param[2]:.2f}, delta = {self.param[3]:.2f}'
+            return f'k = {self.param[0]:.2f}, g0 = {self.param[1]:.2f}, gamma_exp = {self.param[2]:.2f}, delta = {self.param[3]:.2f}'
         else:
             return 'no fit available'

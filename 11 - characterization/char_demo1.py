@@ -10,7 +10,7 @@ from psychopy.hardware import minolta
 realphot = False
 
 # define the gamma function that we'll fit to luminance measurements
-def gammafn(x, k, g0, gamma, delta):
+def gamma(x, k, g0, gamma_exp, delta):
     
     low = x<g0
     high = x>255
@@ -19,13 +19,13 @@ def gammafn(x, k, g0, gamma, delta):
     y = np.empty(x.shape)
     y[low] = delta
     y[high] = k+delta
-    y[ok] = k * np.power((x[ok]-g0)/(255-g0), gamma) + delta
+    y[ok] = k * np.power((x[ok]-g0)/(255-g0), gamma_exp) + delta
     
     return y
 
 # define the inverse of the gamma function, which is what we'll use
 # in experiments after the characterization is done
-def gammainv(y, k, g0, gamma, delta):
+def gammainv(y, k, g0, gamma_exp, delta):
     
     low = y<delta
     high = y>k+delta
@@ -34,7 +34,7 @@ def gammainv(y, k, g0, gamma, delta):
     x = np.empty(y.shape)
     x[low] = g0
     x[high] = 255
-    x[ok] = (255-g0) * np.power((y[ok]-delta)/k, 1/gamma) + g0
+    x[ok] = (255-g0) * np.power((y[ok]-delta)/k, 1/gamma_exp) + g0
     
     return x
 
@@ -71,7 +71,7 @@ for i, g in enumerate(grey):
     if realphot:
         lum[i] = phot.getLum()
     else:
-        lum[i] = gammafn(g, 95, 10, 2.2, 5)
+        lum[i] = gamma(g, 95, 10, 2.2, 5)
         core.wait(0.5)
 
 # close the window and photometer
@@ -81,11 +81,12 @@ if realphot:
 
 # fit the gamma function to the measurements
 pinit = [lum.max()-lum.min(), 0, 2, lum.min()]
-param, _ = optimize.curve_fit(gammafn, grey, lum, p0=pinit)
+bounds = (np.array((0, 0, -np.inf, 0)), np.array((np.inf, 255, np.inf, np.inf)))
+param, _ = optimize.curve_fit(gamma, grey, lum, p0=pinit, bounds=bounds)
 
 # define a function that maps greylevel to luminance
 def grey2lum(g):
-    return gammafn(g, param[0], param[1], param[2], param[3])
+    return gamma(g, param[0], param[1], param[2], param[3])
 
 # plot the measurements and the fit
 xx = np.arange(256)
