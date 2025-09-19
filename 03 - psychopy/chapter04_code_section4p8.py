@@ -18,7 +18,7 @@ line = visual.Line(win=win, start=(-10, 0), end=(10,0),
 kb = keyboard.Keyboard()
 mouse = event.Mouse(visible=False, newPos=[0,0])
 timer = core.Clock()
-beep = sound.Sound(value=440, secs=0.1, volume=1)
+# beep = sound.Sound(value=440, secs=0.1, volume=1)
 
 # initialize data record
 time = 0
@@ -35,7 +35,7 @@ for trial in range(ntrials):
     move.init()
 
     # loop for one trial
-    beep.play()
+    # beep.play()
     while time < trialdur:
 
         # draw target dot
