@@ -91,3 +91,17 @@ kb = keyboard.Keyboard()
 # check what keyboard keys have been pressed
 keys = kb.getKeys(waitRelease=False)
 
+# use an f-string to report the value of math.pi to four decimal places
+import math
+print(f'The approximate value of pi is {math.pi:.4f}.')
+
+# use zip() to print pairs of corresponding values from the lists [1,2,3] and ['a','b','c']
+list1 = [1,2,3]
+list2 = ['a','b','c']
+for v1, v2 in zip(list1, list2):
+    print(v1, v2)
+
+# get a sample from a Bernoulli random variable with probability of success 0.75
+import random
+b = int(random.uniform(0,1) < 0.75)
+
