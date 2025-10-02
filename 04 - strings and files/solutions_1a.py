@@ -1,6 +1,7 @@
-# chapter04_solutions_problem3.py
+# solutions_1a.py  Solution to exercises_4.pdf problem 1(a)
 
 import random
+import pickle
 from psychopy import visual, sound, core
 from psychopy.hardware import keyboard
 
@@ -11,8 +12,10 @@ win = visual.Window(units='pix')
 line = visual.Line(win=win, start=(-10, 0), end=(10,0), lineWidth=5, color='white')
 kb = keyboard.Keyboard()
 timer = core.Clock()
-highbeep = sound.Sound(value=440, secs=0.1, volume=0.3)
-lowbeep = sound.Sound(value=220, secs=0.1, volume=0.3)
+
+#highbeep = sound.Sound(value=440, secs=0.1, volume=0.3)
+#lowbeep = sound.Sound(value=220, secs=0.1, volume=0.3)
+# uncomment for sound
 
 data = []
 
@@ -36,11 +39,22 @@ for trial in range(ntrials):
     leftangle = angle <= 90
     leftresponse = '1' in keys
     correct = leftangle == leftresponse
-    if correct:
-        highbeep.play()
-    else:
-        lowbeep.play()
+#    if correct:
+#        highbeep.play()
+#    else:
+#        lowbeep.play()
+# uncomment for sound
     
     data.append([trial, angle, leftangle, leftresponse, rt])
 
 win.close()
+
+# *** lines below here are added for exercise 1(a)
+
+# save trial-by-trial data
+with open('data.pkl', 'wb') as f:
+    pickle.dump(data, f)
+
+# later, you can reload the data like this:
+# with open('data.pkl', 'rb') as f:
+#     d = pickle.load(f)
