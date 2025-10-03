@@ -105,3 +105,24 @@ for v1, v2 in zip(list1, list2):
 import random
 b = int(random.uniform(0,1) < 0.75)
 
+# Create a 5 x 3 numpy array called z, filled with zeros.
+z = np.zeros(shape=(5,3))
+
+# Create a 4 x 5 numpy array called z, filled with samples from
+# the standard normal distribution (i.e., mean=0, standard deviation=1).
+z = np.random.normal(loc=0.0, scale=1.0, size=(4,5))
+
+# Create a 1D numpy array that contains the numbers 10, 20, 30.
+z = np.array([ 10, 20, 30 ])
+
+# Create a numpy array called z, that contains 10 samples, evenly spaced
+# between 20 and 50.
+z = np.linspace(start=20, stop=50, num=10)
+
+# Find the shape of the numpy array z.
+z.shape
+
+# Create a function called 'addit' that takes two arguments, a and b, and
+# returns their sum. Give argument b a default value of 10.
+def addit(a, b=10):
+    return a+b
