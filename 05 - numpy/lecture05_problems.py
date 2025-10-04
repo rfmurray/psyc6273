@@ -27,7 +27,3 @@
 # 7. Create a 3 x 4 numpy array of random numbers from the standard
 # normal distribution. Set all values less than -2 to -2, and all values
 # greater than -2 to 2.
-
-# 8. Use numpy operations to create a 256 x 256 image of a dot with
-# radius 32 pixels. Show the image in a matplotlib window.
-
