@@ -24,4 +24,3 @@ v = np.ones(4)
 np.vstack((u,v))         # vertically, as rows
 np.hstack((u,v))         # horizontally, as rows (result is 1D)
 np.column_stack((u,v))   # horizontally, as columns
-np.row_stack((u,v))      # vertically, as rows
