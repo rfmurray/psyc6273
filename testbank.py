@@ -126,3 +126,12 @@ z.shape
 # returns their sum. Give argument b a default value of 10.
 def addit(a, b=10):
     return a+b
+
+# Use a list comprehension to a list of the squares of integers from 0 to 9
+[x**2 for x in range(10)]
+
+# Suppose x and y are 1D numpy arrays of the same size. Use matplotlib.pyplot
+# to plot y against x, using a red line to connect the data points.
+import matplotlib.pyplot as plt
+plt.plot(x, y, 'r-')
+plt.show()
