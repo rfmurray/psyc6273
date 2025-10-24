@@ -70,7 +70,7 @@ plt.show()
 
 # make several fits
 errmin = np.inf
-pmin = []
+pmin = np.nan
 for i in range(20):
     
     # make a fit from a random starting point
@@ -78,10 +78,9 @@ for i in range(20):
     res = optimize.minimize(errfn, x0=pinit, method='Nelder-Mead')
     
     # compare error to best so far
-    err = errfn(res.x)
-    if err < errmin:
+    if res.fun < errmin:
         pmin = res.x
-        errmin = err
+        errmin = res.fun
 
 # report results of fit
 print(f'fit: y = ({pmin[0]:.2f}) + ({pmin[1]:.2f}) * sin( x - ({pmin[2]:.2f}) )')
