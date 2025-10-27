@@ -122,12 +122,7 @@ z = np.linspace(start=20, stop=50, num=10)
 # Find the shape of the numpy array z.
 z.shape
 
-# Create a function called 'addit' that takes two arguments, a and b, and
-# returns their sum. Give argument b a default value of 10.
-def addit(a, b=10):
-    return a+b
-
-# Use a list comprehension to a list of the squares of integers from 0 to 9
+# Use a list comprehension to make a list of the squares of integers from 0 to 9
 [x**2 for x in range(10)]
 
 # Suppose x and y are 1D numpy arrays of the same size. Use matplotlib.pyplot
@@ -138,7 +133,6 @@ plt.show()
 
 # Define a function f that takes two arguments, x and y, and returns
 # sin(x)*cos(y). Give y a default value of zero.
-
 import math
 def f(x, y=0):
     return math.sin(x) * math.cos(y)
