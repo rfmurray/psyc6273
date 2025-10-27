@@ -135,3 +135,21 @@ def addit(a, b=10):
 import matplotlib.pyplot as plt
 plt.plot(x, y, 'r-')
 plt.show()
+
+# Define a function f that takes two arguments, x and y, and returns
+# sin(x)*cos(y). Give y a default value of zero.
+
+import math
+def f(x, y=0):
+    return math.sin(x) * math.cos(y)
+
+# Use the scipy.stats module to regress the data in y against x.
+from scipy import stats
+r = stats.linregress(x, y)
+
+# Use scipy.optimize.curve_fit to find the sum-of-squares fit of
+# a function called fitfn to data points x and y.
+
+from scipy import optimize
+popt, _ = optimize.curve_fit(fitfn, x, y)
+
