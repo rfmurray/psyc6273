@@ -149,7 +149,6 @@ r = stats.linregress(x, y)
 
 # Use scipy.optimize.curve_fit to find the sum-of-squares fit of
 # a function called fitfn to data points x and y.
-
 from scipy import optimize
 popt, _ = optimize.curve_fit(fitfn, x, y)
 
