@@ -40,18 +40,26 @@ stats.binom.pmf(ncorrect, ntrials, fitfn(stimlev,pguess)).prod()
 # might be concerned about underflow errors, i.e., results being rounded
 # down to zero. so we'll deal with the logarithm of the probability
 # instead.
-np.log( stats.binom.pmf(ncorrect, ntrials, fitfn(stimlev,pguess)) ).sum()
+
+# version 1:
+# np.log( stats.binom.pmf(ncorrect, ntrials, fitfn(stimlev,pguess)) ).sum()
+
+# version 2:
+stats.binom.logpmf(ncorrect, ntrials, fitfn(stimlev,pguess)).sum()
 
 # forget about our guess for the parameters, and make the line above
 # into a function of a variable p (which is a two-element array). our goal
 # is to find the value of p that maximizes this function.
 
+# version 1:
 # def errfn(p):
 #     return np.log( stats.binom.pmf(ncorrect, ntrials, fitfn(stimlev,p)) ).sum()
 
-def errfn(p):
-    return stats.binom.logpmf(ncorrect, ntrials, fitfn(stimlev,p)).sum()
+# version 2:
+# def errfn(p):
+#     return stats.binom.logpmf(ncorrect, ntrials, fitfn(stimlev,p)).sum()
 
+# version 3:
 # we don't have a Python function that finds the maximum of a function, but
 # we do have one that finds the minimum. we'll add a negative sign to the
 # function defined just above. maximizing the above function is the same as

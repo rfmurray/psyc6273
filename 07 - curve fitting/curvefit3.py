@@ -11,15 +11,19 @@ d = np.random.normal(size=20, loc=5.0, scale=2.0)
 
 # make the error function
 
-# def errfn(p):
-#     return -stats.norm.pdf(d, loc=p[0], scale=p[1]).prod()
-
-# def errfn(p):
-#     return -np.log( stats.norm.pdf(d, loc=p[0], scale=p[1]) ).sum()
 # scipy.stats.norm.pdf(x, loc=mu, scale=sigma) is the probability density
 # of a sample with value x from a normal distribution with mean mu
 # and standard deviation sigma
 
+# attempt 1:
+# def errfn(p):
+#     return -stats.norm.pdf(d, loc=p[0], scale=p[1]).prod()
+
+# attempt 2:
+# def errfn(p):
+#     return -np.log( stats.norm.pdf(d, loc=p[0], scale=p[1]) ).sum()
+
+# attempt 3:
 def errfn(p):
     return -stats.norm.logpdf(d, loc=p[0], scale=p[1]).sum()
 
@@ -42,20 +46,23 @@ ntrials = np.array([   20,   20,   20,   20,   20,   20,   20,   20,   20,   20 
 ncorrect = np.array([  10,   11,   10,   12,   14,   15,   14,   18,   19,   20 ])
 
 # make the fitting function
-# - stats.norm.cdf(x,loc,scale) is a function of x that increases smoothly
-#   from 0 to 1. loc shifts it left or right, and scale makes it
-#   steeper or shallower.
+
+# stats.norm.cdf(x,loc,scale) is a function of x that increases smoothly increases
+# 0 to 1. loc shifts it left or right, and scale makes it steeper or shallower.
 def fitfn(x, p):
     return 0.5 + 0.5*stats.norm.cdf(x,loc=p[0],scale=p[1])
 
 # make the error function (negative log likelihood)
+
+# stats.binom.pmf(k, n, p) is the probability of having k successes
+# out of n independent trials, when the probability of each success is p
+
+# attempt 1:
+# def errfn(p):
+#     return -np.log( stats.binom.pmf(ncorrect,ntrials,fitfn(stimlev,p)) ).sum()
+
+# attempt 2:
 # (see steps2.py for a step-by-step construction of this function)
-# - stats.binom.pmf(k, n, p) is the probability of having k successes
-#   out of n independent trials, when the probability of each success is p
-
-#def errfn(p):
-#    return -np.log( stats.binom.pmf(ncorrect,ntrials,fitfn(stimlev,p)) ).sum()
-
 def errfn(p):
     return -stats.binom.logpmf(ncorrect,ntrials,fitfn(stimlev,p)).sum()
 
