@@ -16,6 +16,9 @@ df2 = df.groupby(['noisevar','sigcst'])['correct']
 df2 = df2.agg(ncorrect='sum', ntrials='count')
 df2.reset_index(inplace=True)  # make indices into data columns
 
+# do the same thing in one line
+#df2 = df.groupby(['noisevar','sigcst'])['correct'].agg(ncorrect='sum', ntrials='count').reset_index()
+
 # find a threshold
 def threshold(x, plot=True):
     
