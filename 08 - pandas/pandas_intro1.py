@@ -43,15 +43,15 @@ df['Age']           # series
 df[['Age', 'Sex']]  # dataframe
 
 # select rows
-df[0:3]
-df[df['Age']>35]
+df[0:3]            # select by row number; second index is exclusive
+df[df['Age']>35]   # use boolean indices
 
 # select rows and columns
 df[df['Age']>35]['Name']
 
 # method 2: use indices with loc
 
-df.loc[0:5]                   # rows (by indices, not row numbers; second index is inclusive)
+df.loc[0:5]                   # select rows by indices, not row numbers; second index is inclusive
 df.loc[:, 'Age']              # column
 df.loc[:, ['Age', 'Sex']]     # columns
 df.loc[0:5, ['Age', 'Sex']]   # rows and columns; again, second index is inclusive
