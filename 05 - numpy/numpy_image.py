@@ -13,7 +13,7 @@ def imgrey(x, title='', **kwargs):
 # make (x,y) coordinate matrices
 n = 128
 midn = np.floor(n/2)
-xy = np.arange(-midn, midn)
+xy = np.arange(0, n) - midn
 xmat, ymat = np.meshgrid(xy, -xy)
 
 # show coordinate matrices
@@ -36,15 +36,17 @@ imgrey(windowmat, 'gaussian')
 
 # make a cosine-phase Gabor
 gabormat = windowmat * cosmat
-imgrey(gabormat, 'gabor (contrast)')
-
-# convert to positive-valued luminances that we could show on a calibrated monitor
-bglum = 100        # background luminance
-contrast = 0.50    # Weber contrast = (foreground - background)/background
-lummat = bglum*(1 + contrast * gabormat)  # this works because the maximum value in gabormat is 1.0
-imgrey(lummat, 'gabor (luminance)', vmin=0, vmax=200)
+imgrey(gabormat, 'gabor (contrast)', vmin=-1, vmax=1)
 
 # add noise to the gabor
-stimmat = contrast * gabormat + np.random.normal(loc=0, scale=0.2, size=gabormat.shape)
+stimmat = gabormat + np.random.normal(loc=0, scale=0.5, size=gabormat.shape)
+imgrey(stimmat, 'noisy gabor (contrast)', vmin=-1, vmax=1)
+
+# convert to positive-valued luminances that we could show on a calibrated monitor
+bglum = 100               # background luminance
+signal_contrast = 0.50    # Weber contrast = (foreground - background)/background
+signalmat = signal_contrast * gabormat  # this works because the max value in gabormat is 1.0
+noisemat = np.random.normal(loc=0, scale=0.2, size=signalmat.shape)
+stimmat = signalmat + noisemat
 lummat = bglum*(1 + stimmat)
 imgrey(lummat, 'noisy gabor (luminance)', vmin=0, vmax=200)
