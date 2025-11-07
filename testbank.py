@@ -146,3 +146,14 @@ r = stats.linregress(x, y)
 from scipy import optimize
 popt, _ = optimize.curve_fit(fitfn, x, y)
 
+# Use the pandas module to load a comma-delimited data file called 'titanic.csv'.
+import pandas as pd
+df = pd.read_csv("titanic.csv")
+
+# Select the rows of a pandas data frame where the 'Age' column has a value
+# greater than 35.
+df[df['Age']>35]
+
+# Find the mean of the 'Age' column of a pandas data frame, separately for
+# each value in the 'Pclass' column.
+df.groupby('Pclass')['Age'].mean()
