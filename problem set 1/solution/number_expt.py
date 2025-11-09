@@ -19,7 +19,7 @@ win = visual.Window(units='pix')
 fixpt = visual.Circle(win=win, radius=2)
 dot = visual.Circle(win=win, radius=5)
 
-# create keyboard, mouse, timer, and sound objects
+# create keyboard, mouse, and timer objects
 kb = keyboard.Keyboard()
 mouse = event.Mouse(visible=False)
 timer = core.Clock()
