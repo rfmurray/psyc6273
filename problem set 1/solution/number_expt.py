@@ -10,23 +10,34 @@ ntrials = 100   # number of trials
 stimdur = 0.5   # stimulus duration (seconds)
 refnum = 30     # number of reference dots
 testrange = (20, 40, 2)  # range of number of test dots
+dotradius = 5   # dot radius (pixels)
 stimsize = 200  # size of stimulus square (pixels)
 pausedur = 0.5  # pause duration (seconds)
 filename = 'data.txt'
 
-# create window, fixation point, dot
+# create window, fixation point, and dot
 win = visual.Window(units='pix')
 fixpt = visual.Circle(win=win, radius=2)
-dot = visual.Circle(win=win, radius=5)
+dot = visual.Circle(win=win, radius=dotradius)
 
 # create keyboard, mouse, and timer objects
 kb = keyboard.Keyboard()
 mouse = event.Mouse(visible=False)
 timer = core.Clock()
 
+# sample non-overlapping dot locations
+def dotxy(count, squaresize, separation):
+    xy = []
+    while len(xy) < count:
+        newxy = np.random.randint(low=-squaresize/2, high=(squaresize/2)+1, size=(2,)).astype(np.float64)
+        d = [np.linalg.norm(newxy-oldxy) for oldxy in xy]
+        if len(d) == 0 or min(d) >= separation:
+            xy.append(newxy)
+    return np.array(xy)
+
 # draw one stimulus
 def drawdots(count, left):
-    xy = np.random.randint(low=-stimsize/2, high=(stimsize/2)+1, size=(count,2)).astype(np.float64)
+    xy = dotxy(count, stimsize, 3*dotradius)
     xy[:,0] += 0.75*stimsize*(-1 if left else 1)
     for i in range(count):
         dot.setPos(xy[i,:])
