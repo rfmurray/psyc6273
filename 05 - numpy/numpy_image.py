@@ -50,3 +50,13 @@ noisemat = np.random.normal(loc=0, scale=0.2, size=signalmat.shape)
 stimmat = signalmat + noisemat
 lummat = bglum*(1 + stimmat)
 imgrey(lummat, 'noisy gabor (luminance)', vmin=0, vmax=200)
+
+# going back a few steps, here's how rotate values in the coordinate matrices
+theta = 10 * (np.pi/180)  # 10 degrees, converted to radians
+xrmat = np.cos(theta)*xmat - np.sin(theta)*ymat
+yrmat = np.sin(theta)*xmat + np.cos(theta)*ymat
+
+# if we make an image using these rotated coordinate matrices, then the image is rotated
+wavelength = 8
+cosmat = np.cos(2*np.pi*xrmat/wavelength)
+imgrey(cosmat, 'cosine wave (rotated)')
