@@ -78,3 +78,11 @@ plt.plot(stimlev,ncorrect/ntrials,'ro')
 xx = np.linspace(0,0.6,100)
 plt.plot(xx,fitfn(xx,res.x))
 plt.show()
+
+# find an arbitrary threshold
+# solve: threshlev = 0.5 + 0.5*stats.norm.cdf(x,loc=mu,scale=sigma)
+# solution: x = stats.norm.ppf((threshlev-0.5)/0.5, loc=mu, scale=sigma)
+# useful fact: stats.norm.ppf is the inverse of stats.norm.cdf
+threshlev = 0.82
+thresh = stats.norm.ppf((threshlev-0.5)/0.5, loc=res.x[0], scale=res.x[1])
+print(f'{100*threshlev:.0f}% threshold: {thresh:.2f}')
