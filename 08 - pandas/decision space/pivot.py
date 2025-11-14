@@ -1,7 +1,7 @@
 
 import pandas as pd
 
-df1 = pd.read_csv('demo.txt',delimiter=',', header=None)
+df1 = pd.read_csv('pivot.txt',delimiter=',', header=None)
 df1.columns = ['c1', 'c2', 'v']
 print(df1)
 print()
