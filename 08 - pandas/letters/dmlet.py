@@ -6,7 +6,7 @@ from scipy import optimize, stats
 from matplotlib import pyplot as plt
 
 # load data file
-df = pd.read_csv('dmlet.txt', header=None, delim_whitespace=True,
+df = pd.read_csv('dmlet.txt', header=None, sep='\s+',
                  comment='%', skip_blank_lines=True)
 df.columns = ['trial', 'matchtrial', 'siglet', 'sigcst', 'noisevar',
               'seedu', 'seedn', 'resplet', 'correct', 'rt']
@@ -44,10 +44,9 @@ def threshold(x, plot=True):
     return thresh
 
 # find the threshold for each noise level
-s3 = df2.groupby(['noisevar']).apply(threshold, plot=True)
+s3 = df2.groupby(['noisevar']).apply(threshold, include_groups=False, plot=True)
 plt.show()
-df3 = pd.DataFrame(s3, columns=['thresh'])
-df3.reset_index(inplace=True)
+df3 = s3.reset_index(name='thresh')
 
 # plot squared thresholds vs noise level
 plt.plot(df3['noisevar'], df3['thresh']**2, 'ro-')

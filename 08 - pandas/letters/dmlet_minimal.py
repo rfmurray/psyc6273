@@ -5,7 +5,7 @@ import pandas as pd
 from scipy import optimize, stats
 
 # load data file
-df = pd.read_csv('dmlet.txt', header=None, delim_whitespace=True,
+df = pd.read_csv('dmlet.txt', header=None, sep='\s+',
                  comment='%', skip_blank_lines=True,
                  usecols = [3, 4, 8], names=['sigcst', 'noisevar', 'correct'])
 
@@ -22,5 +22,5 @@ def threshold(x):
     return res.x[0]
 
 # find the threshold for each noise level
-thresh = df.groupby(['noisevar']).apply(threshold)
+thresh = df.groupby(['noisevar']).apply(threshold, include_groups=False)
 print(thresh)
