@@ -9,9 +9,10 @@ print(im)
 print(im.dtype)
 print(im.min(), im.max())
 
-# visual.ImageStim() expects an image in the range 0-1, so if we show
-# the image in its current format, we'll get a completely white image.
-# (try it and see, by commenting out the next two lines of code.)
+# visual.ImageStim() expects an n x m x 3 array to have values in the
+# range 0-1, so if we show the image in its current format, we'll get
+# a completely white image. (try it and see, by commenting out the next
+# two lines of code.)
 
 # instead, we'll convert the image to floating point, and then divide by
 # 255 to map it to the range 0-1.
@@ -30,20 +31,20 @@ img.draw()
 win.flip()
 core.wait(2)
 
-# in problem set 2, you'll make and show noisy gabor patterns. the gabor has
-# the range -1 to 1, so you'll also have to map it to the range 0-1. to keep
-# this demo simple, I'll just use a sample of white Gaussian noise, clipped
-# so that it's limited to the range -1 to 1.
+# in problem set 2, you'll make and show noisy gabor patterns. you will create
+# this stimulus as an n x n array. numpy distinguishes between 2D arrays with
+# size (n,n), and 3D arrays with size (n,n,1). you'll use the former. we saw above
+# that ImageStim expects 3D arrays with size (n,n,3) to have values in the
+# range 0 to 1. however, it expects 2D arrays with size (n,n) to have values in the
+# range -1 to 1. to keep this demo simple, I'll just use a sample of white
+# Gaussian noise, clipped so that it's limited to the range -1 to 1.
 noise = np.random.normal(loc=0, scale=0.5, size=(256,256)).clip(-1,1)
-
-# here's how we can map the range [-1,1] to [0,1]
-noise = (noise+1)/2
 print(noise)
 print(noise.dtype)
 print(noise.min(), noise.max())
 
-# now we can show the noise image; here I also show a more concise way of switching
-# the order of height and width.
+# we can show this noise image with ImageStim; here I also show a more concise way of
+# switching the order of height and width.
 img = visual.ImageStim(win, image=noise, size=noise.shape[1::-1])
 img.draw()
 win.flip()
