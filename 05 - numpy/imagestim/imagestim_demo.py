@@ -18,7 +18,7 @@ print(im.min(), im.max())
 # 255 to map it to the range 0-1.
 im = im.astype(np.float64)/255
 
-# iio.imread reads the image upside down, so we'll flip it vertically.
+# ImageStim shows the image upside down, so we'll flip it vertically.
 im = np.flip(im, axis=0)
 
 # now we can show the image with ImageStim; note that the 'size' argument to
@@ -45,6 +45,7 @@ print(noise.min(), noise.max())
 
 # we can show this noise image with ImageStim; here I also show a more concise way of
 # switching the order of height and width.
+noise = np.flip(noise, axis=0)
 img = visual.ImageStim(win, image=noise, size=noise.shape[1::-1])
 img.draw()
 win.flip()
