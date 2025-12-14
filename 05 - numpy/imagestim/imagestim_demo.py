@@ -2,7 +2,7 @@ import numpy as np
 import imageio.v3 as iio
 from psychopy import visual, core
 
-# we read an image; the result is a numpy array; observe that it consists of
+# we read an image, and the result is a numpy array. observe that it consists of
 # integers in the range 0-255.
 im = iio.imread('fechner.jpg')
 print(im)
@@ -12,16 +12,14 @@ print(im.min(), im.max())
 # visual.ImageStim() expects an n x m x 3 array to have values in the
 # range 0-1, so if we show the image in its current format, we'll get
 # a completely white image. (try it and see, by commenting out the next
-# two lines of code.)
-
-# instead, we'll convert the image to floating point, and then divide by
-# 255 to map it to the range 0-1.
+# line of code.) instead, we'll convert the image to floating point, and
+# then divide by 255 to map it to the range 0-1.
 im = im.astype(np.float64)/255
 
 # ImageStim shows the image upside down, so we'll flip it vertically.
 im = np.flip(im, axis=0)
 
-# now we can show the image with ImageStim; note that the 'size' argument to
+# now we can show the image with ImageStim. note that the 'size' argument to
 # ImageStim expects the size in the order (width, height), whereas the 'shape'
 # property of a numpy array gives the size in the order (height, width), so
 # we have to switch the order.
