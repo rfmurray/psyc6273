@@ -17,11 +17,11 @@ import numpy as np
 
 T = 0.1     # sound duration in seconds
 f = 440     # sound frequency in Hz (cycles/second)
-fs = 44100  # sample frequency in Hz (cycles/second)
+fs = 48000  # sample frequency in Hz (cycles/second)
 t = np.linspace(0, T, int(fs*T))  # time
 wave = np.sin(2*np.pi*f*t)        # amplitude
 
-sd.play(wave, fs)
+sd.play(wave, samplerate=fs)
 sd.wait()
 
 # If you're just using sound for auditory feedback, anything like
