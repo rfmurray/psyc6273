@@ -40,30 +40,9 @@ x.append(50)
 # extend the list x with a new list [1, 2, 3]
 x.extend([1, 2, 3])
 
-# Suppose x is a list. Briefly explain why x.append(10).append(20)
-# does not append the numbers 10 and 20 to the end of x.
-# 
-# A: The append() method modifies a list in place. The call to
-# x.append(10) appends 10 to x, but it returns the value None, not
-# the modified list. Thus the call to append(20) tries to extend
-# None, and this causes an error.
-
 # define a new list y that contains elements 2 to 5 of list x,
 # with numbering starting at zero
 y = x[2:6]  # note that the number 6 is not a typo
-
-# Suppose x is a list with 10 elements. Do x[2:] and x[2:len(x)]
-# return the same elements of the list? Briefly explain why or why not.
-# 
-# A: Yes, they do return the same elements.
-# 
-# x[2:] returns elements starting with element 2 and continuing
-# to the end of the list.
-# 
-# x[2:len(x)] is the same as x[2:10], and this returns elements 2
-# through 9. Because element numbering starts with zero, element 9
-# is the last element, and so again we get elements from 2 to the
-# end of the list.
 
 # convert a list x to to a tuple, and then back to a list
 x = tuple(x)
@@ -116,3 +95,28 @@ x = math.log(100)
 # normal distribution (mean=0, std=1) to the variable x
 import random
 x = random.gauss(0, 1)
+
+# open a new psychopy window
+from psychopy import visual
+win = visual.Window()
+
+# create a psychopy keyboard object
+from psychopy.hardware import keyboard
+kb = keyboard.Keyboard()
+
+# create a psychopy mouse object
+from psychopy import event
+mouse = event.Mouse()
+
+# create a psychopy clock object
+from psychopy import core
+timer = core.Clock()
+
+# create a 4 x 5 numpy array filled with zeros
+import numpy as np
+x = np.zeros(shape=(3,4))
+
+# create a 4 x 5 numpy array filled with samples from the normal distribution
+# with mean zero and standard deviation one
+import numpy as np
+x = np.random.normal(loc=0.0, scale=1.0, size=(4,4))
