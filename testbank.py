@@ -120,3 +120,11 @@ x = np.zeros(shape=(3,4))
 # with mean zero and standard deviation one
 import numpy as np
 x = np.random.normal(loc=0.0, scale=1.0, size=(4,4))
+
+# find the mean of the values in a numpy array x that are greater than zero
+x[x>0].mean()
+
+# make a plot with the values in variable 'stimlev' on the x axis, the values
+# in the variable 'pcorrect' on the y axis, and data points shown as red circles
+import matplotlib.pyplot as plt
+plt.plot(stimlev, pcorrect, 'ro')
