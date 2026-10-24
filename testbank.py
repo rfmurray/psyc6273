@@ -114,12 +114,12 @@ timer = core.Clock()
 
 # create a 4 x 5 numpy array filled with zeros
 import numpy as np
-x = np.zeros(shape=(3,4))
+x = np.zeros(shape=(4,5))
 
 # create a 4 x 5 numpy array filled with samples from the normal distribution
 # with mean zero and standard deviation one
 import numpy as np
-x = np.random.normal(loc=0.0, scale=1.0, size=(4,4))
+x = np.random.normal(loc=0.0, scale=1.0, size=(4,5))
 
 # find the mean of the values in a numpy array x that are greater than zero
 x[x>0].mean()
