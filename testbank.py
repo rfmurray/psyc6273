@@ -128,3 +128,12 @@ x[x>0].mean()
 # in the variable 'pcorrect' on the y axis, and data points shown as red circles
 import matplotlib.pyplot as plt
 plt.plot(stimlev, pcorrect, 'ro')
+
+# find the linear regression of y against x (both are numpy arrays)
+from scipy import stats
+r = stats.linregress(x, y)
+
+# find the parameters that give the least-squares fit of a function f(u, a, b)
+# to numpy arrays x and y
+from scipy import optimize
+param, _ = optimize.curve_fit(f, x, y, p0=(0,0))
