@@ -28,7 +28,7 @@ if dlg.OK:
 else:
     core.quit()
 
-# load characterization data
+# load display characterization data
 char = CharLum('tools/charlum.pkl')
 
 # create psychopy objects

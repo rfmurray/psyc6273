@@ -1,33 +1,31 @@
-# psychtools.py  Module containing tools for psychological experiments
-
 import math, random
 
 # staircase class
 class Stair:
     
-    def __init__(self, up=1, down=3, levels=[ i for i in range(10) ]):
+    def __init__(self, up=1, down=3, levels=list(range(10))):
         self.countLimits = [up, down]
         self.levels = levels
         self.count = [0, 0]
-        self.stimk = round(len(levels)/2)
+        self.levelk = round(len(levels)/2)
     
     def stim(self):
-        return self.levels[self.stimk]
+        return self.levels[self.levelk]
     
     def response(self, correct):
         
         self.count[correct] += 1
         
         if self.count[0] >= self.countLimits[0]:
-            self.stimk = min( self.stimk+1, len(self.levels)-1 )
+            self.levelk = min( self.levelk+1, len(self.levels)-1 )
             self.count = [0, 0]
             
         elif self.count[1] >= self.countLimits[1]:
-            self.stimk = max( self.stimk-1, 0 )
+            self.levelk = max( self.levelk-1, 0 )
             self.count = [0, 0]
     
     def __repr__(self):
-        return f'Stair(countlimits={self.countLimits}, levels={self.levels}, count={self.count}, stimk={self.stimk})'
+        return f'Stair(countlimits={self.countLimits}, levels={self.levels}, count={self.count}, levelk={self.levelk})'
 
 # staircase holder class
 class StairHolder:
