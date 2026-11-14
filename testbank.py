@@ -137,3 +137,12 @@ r = stats.linregress(x, y)
 # to numpy arrays x and y
 from scipy import optimize
 param, _ = optimize.curve_fit(f, x, y, p0=(0,0))
+
+# define a function that evaluates just the main, smoothly rising section of a gamma function
+def gammafn(x, k, g0, gamma, delta):
+    return k * np.power((x-g0)/(255-g0), gamma) + delta
+
+# find the probability density of values in a numpy array x, according to the normal
+# distribution with mean 10 and standard deviation 2
+p = scipy.stats.norm.pdf(x, loc=10, scale=2)
+
