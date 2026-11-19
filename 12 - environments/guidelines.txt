@@ -1,0 +1,77 @@
+
+Here are some notes on how to install PsychoPy in environments other than Standalone PsychoPy.
+
+
+1. Installing the correct version of Python.
+
+PsychoPy 2026.2.0 is a current or near-current version of PsychoPy, and it requires Python 3.11 (or a sub-version such as 3.11.9). You can download that version of Python here:
+
+    https://www.python.org/downloads/release/python-3119/
+
+In the rest of these notes, I'll assume that you've installed that version of Python. If you don't, there's a good chance that these procedures won't work.
+
+
+2. Using PsychoPy from the command line in a virtual environment.
+
+(a) In macOS or Linux, you can create a virtual environment from the command line as follows.
+
+python3 -m venv env
+source env/bin/activate
+
+In Windows, you may have to replace the 'python3' command with 'python' or 'py'.
+
+Then you can install PsychoPy into this virtual environment as follows.
+
+python -m pip install psychopy
+
+Again, in Windows you may have to use 'py'.
+
+(b) You should now be able to run Python scripts that use PsychoPy from the command line. For example, you can run a script from our introductory lecture on PsychoPy:
+
+python chapter04_code_section4p4.py
+
+The first time you run a script, it may take some time (e.g., 20 seconds) to open the window.
+
+Instead of running programs from the command line like this, you will probably prefer to use PyCharm or Spyder as described in sections 3 and 4 below. However, creating a virtual environment as we've done here is a good illustration of what's happening behind the scenes in those applications. Also, if you have trouble running PsychoPy in those applications, seeing whether you can run PsychoPy from the command line may give a clue as to whether the problem is really those applications, or whether it's a basic inability of your system to run PsychoPy.
+
+
+3. Using PsychoPy in PyCharm.
+
+(a) PyCharm is a popular environment for Python programming. You can download it here:
+
+    https://www.jetbrains.com/pycharm
+
+Free licenses are provided to users in research and education.
+
+(b) Your code in PyCharm is usually organized into 'projects'. A project is a directory that contains your code as well as a virtual environment, like the one we created in section 2. To create a new project in PsychoPy, choose the menu item "File / New project ..."  Give your project a name and location, and click Create. The default settings are fine.
+
+(c) To install PsychoPy into your project, choose "View / Tool Windows / Python Packages". In the search box that appears, type: psychopy. Click "psychopy" in the list of entries that appears, and click the "install" button that then appears to the right. You'll see messages go by as the package is installed. This may take a few minutes.
+
+(d) PsychoPy has now been installed into your project. However, before you can run PsychoPy code, there's one more step. In macOS, in order to be able to use keyboard input in your experiment, you will have to give PyCharm access to the keyboard. In "Apple / System Settings...", go to "Privacy & Security", and scroll down and choose "Input Monitoring". Add your installation of PyCharm to the list of applications that are allowed to monitor input. You will only have to do this once, when you create your first project. There may be similar permission settings that you have to make in Windows and Linux.
+
+You should now be able to use PyCharm to edit and run Python scripts that use PsychoPy. You can try running one of the scripts from the introductory lecture on PsychoPy.
+
+
+4. Using PsychoPy in Spyder.
+
+PyCharm is a powerful and flexible application, e.g., you can have a different virtual environment for every project, and you can sync your code to GitHub. Some people prefer a simpler environment, and Spyder is a good option for that.
+
+(a) You can download Spyder here:
+
+    https://www.spyder-ide.org/
+
+(b) To use PsychoPy with Spyder, create a virtual environment and install PsychoPy into it, as in section 2 above. Then, also install some Spyder-specific tools into the environment, like this:
+
+pip install spyder-kernels
+
+(c) Now configure Spyder to use that virtual environment. Open Spyder's Preferences panel (e.g., "Spyder 6 / Preferences..."), and click "Python interpreter" from the list on the left. Choose "Selected interpreter", and set it to the python program in your virtual environment. For example, if I've created my environment as the directory /Users/rfm/Desktop/env, then I would set the interpreter to:
+
+   /Users/rfm/Desktop/env/bin/python
+
+The Python app is always "bin/python" below the location and name you used for the environment. After you've done that, click OK to close the Preferences panel. From the menu, choose "Console / Restart kernel" to make Spyder use the version of Python you selected.
+
+(d) Open the Preferences panel again, from the list on the left choose "IPython Console", and choose the Plotting panel. Under "Graphics backend", set Backend to "macOS", or some similar option for Windows or Linux.
+
+(e) Allow input monitoring for Spyder, just as you did in section 3(d) for PyCharm.
+
+You should now be able to use Spyder to run Python scripts that use PsychoPy.
