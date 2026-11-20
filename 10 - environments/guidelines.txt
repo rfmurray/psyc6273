@@ -62,7 +62,7 @@ PyCharm is a powerful and flexible application, e.g., you can have a different v
 
 (b) To use PsychoPy with Spyder, create a virtual environment and install PsychoPy into it, as in section 2 above. Then, also install some Spyder-specific tools into the environment, like this:
 
-pip install spyder-kernels
+python -m pip install spyder-kernels
 
 (c) Now configure Spyder to use that virtual environment. Open Spyder's Preferences panel (e.g., "Spyder 6 / Preferences..."), and click "Python interpreter" from the list on the left. Choose "Selected interpreter", and set it to the python program in your virtual environment. For example, if I've created my environment as the directory /Users/rfm/Desktop/env, then I would set the interpreter to:
 
