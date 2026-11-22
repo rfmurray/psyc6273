@@ -1,12 +1,13 @@
 import sys, random, datetime
 import numpy as np
-from psychopy import visual, core, event, gui
+from psychopy import visual, core, event
 from psychopy.hardware import keyboard
 
-sys.path.append('tools')
+# sys.path.append('tools')
 from stimuli import gabor, beep
 from stair import StairHolder, Stair
 from characterize import CharLum
+from util import getID
 
 ntrials = 200           # number of trials
 angle = 5               # gabor orientation left or right of vertical (degrees)
@@ -20,13 +21,8 @@ predur = 0.5            # inter-trial interval
 stimdur = 0.5           # stimulus duration
 
 # get participant ID
-info = {'Participant ID': ''}
-dlg = gui.DlgFromDict(dictionary=info, title='Orientation experiment')
-if dlg.OK:
-    subject = info['Participant ID']
-    fname = f'data/data_{subject}.txt'
-else:
-    core.quit()
+subject = getID()
+fname = f'data/data_{subject}.txt'
 
 # load display characterization data
 char = CharLum('tools/charlum.pkl')
