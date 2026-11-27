@@ -146,3 +146,9 @@ def gammafn(x, k, g0, gamma, delta):
 # distribution with mean 10 and standard deviation 2
 p = scipy.stats.norm.pdf(x, loc=10, scale=2)
 
+# create and activate a python virtual environment at the command line
+python3 -m venv env
+source env/bin/activate
+
+# install psychopy into a python virtual environment
+pip install psychopy
